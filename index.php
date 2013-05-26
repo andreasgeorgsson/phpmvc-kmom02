@@ -2,12 +2,12 @@
 //
 // PHASE: BOOTSTRAP
 //
-define('LYDIA_INSTALL_PATH', dirname(__FILE__));
-define('LYDIA_SITE_PATH', LYDIA_INSTALL_PATH . '/site');
+define('ALYSSA_INSTALL_PATH', dirname(__FILE__));
+define('ALYSSA_SITE_PATH', ALYSSA_INSTALL_PATH . '/site');
 
-require (LYDIA_INSTALL_PATH . '/src/CLydia/bootstrap.php');
+require (ALYSSA_INSTALL_PATH . '/src/CAlyssa/bootstrap.php');
 
-$ly = CLydia::Instance();
+$ly = CAlyssa::Instance();
 
 //
 // PHASE: FRONTCONTROLLER ROUTE

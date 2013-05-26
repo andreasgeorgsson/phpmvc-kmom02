@@ -19,7 +19,7 @@ class CCDeveloper implements IController {
 	public function Links() {
 		$this -> Menu();
 
-		$ly = CLydia::Instance();
+		$ly = CAlyssa::Instance();
 
 		$url = 'developer/links';
 		$current = $ly -> request -> CreateUrl($url);
@@ -53,7 +53,7 @@ EOD;
 	 * Create a method that shows the menu, same for all methods
 	 */
 	private function Menu() {
-		$ly = CLydia::Instance();
+		$ly = CAlyssa::Instance();
 		$menu = array('developer', 'developer/index', 'developer/links');
 
 		$html = null;

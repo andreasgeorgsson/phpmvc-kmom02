@@ -1,10 +1,11 @@
 <?php
 /**
- * Main class for Lydia, holds everything.
+ * Main class for Alyssa, holds everything.
  *
- * @package LydiaCore
+ * @package AlyssaCore
  */
-class CLydia implements ISingleton {
+
+class CAlyssa implements ISingleton {
 
 	private static $instance = null;
 
@@ -14,16 +15,16 @@ class CLydia implements ISingleton {
 	protected function __construct() {
 		// include the site specific config.php and create a ref to $ly to be used by config.php
 		$ly = &$this;
-		require (LYDIA_SITE_PATH . '/config.php');
+		require (ALYSSA_SITE_PATH . '/config.php');
 	}
 
 	/**
 	 * Singleton pattern. Get the instance of the latest created object or create a new one.
-	 * @return CLydia The instance of this class.
+	 * @return CAlyssa The instance of this class.
 	 */
 	public static function Instance() {
 		if (self::$instance == null) {
-			self::$instance = new CLydia();
+			self::$instance = new CAlyssa();
 		}
 		return self::$instance;
 	}
@@ -33,7 +34,7 @@ class CLydia implements ISingleton {
 	 */
 	public function FrontControllerRoute() {
 		// Take current url and divide it in controller, method and parameters
-		$this -> request = new CRequest($this -> config['url_type']);
+		$this -> request = new CRequest();
 		$this -> request -> Init($this -> config['base_url']);
 		$controller = $this -> request -> controller;
 		$method = $this -> request -> method;
@@ -58,11 +59,7 @@ class CLydia implements ISingleton {
 				if ($rc -> hasMethod($method)) {
 					$controllerObj = $rc -> newInstance();
 					$methodObj = $rc -> getMethod($method);
-					if ($methodObj -> isPublic()) {
-						$methodObj -> invokeArgs($controllerObj, $arguments);
-					} else {
-						die("404. " . get_class() . ' error: Controller method not public.');
-					}
+					$methodObj -> invokeArgs($controllerObj, $arguments);
 				} else {
 					die("404. " . get_class() . ' error: Controller does not contain method.');
 				}
@@ -75,20 +72,20 @@ class CLydia implements ISingleton {
 	}
 
 	/**
-	 * ThemeEngineRender, renders the reply of the request to HTML or whatever.
+	 * ThemeEngineRender, renders the reply of the request.
 	 */
 	public function ThemeEngineRender() {
 		// Get the paths and settings for the theme
 		$themeName = $this -> config['theme']['name'];
-		$themePath = LYDIA_INSTALL_PATH . "/themes/{$themeName}";
-		$themeUrl = $this -> request -> base_url . "themes/{$themeName}";
+		$themePath = ALYSSA_INSTALL_PATH . "/themes/{$themeName}";
+		$themeUrl = $this->request->base_url . "themes/{$themeName}";
 
 		// Add stylesheet path to the $ly->data array
-		$this -> data['stylesheet'] = "{$themeUrl}/style.css";
+		$this -> data['stylesheet'] = "{$themeUrl}/style_base.css";
 
 		// Include the global functions.php and the functions.php that are part of the theme
 		$ly = &$this;
-		include (LYDIA_INSTALL_PATH . '/themes/functions.php');
+		include ALYSSA_INSTALL_PATH . "/themes/functions.php";
 		$functionsPath = "{$themePath}/functions.php";
 		if (is_file($functionsPath)) {
 			include $functionsPath;

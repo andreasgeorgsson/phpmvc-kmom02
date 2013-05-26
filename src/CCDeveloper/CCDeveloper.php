@@ -2,7 +2,7 @@
 /**
  * Controller for development and testing purpose, helpful methods for the developer.
  *
- * @package AlyssaCore
+ * @package LydiaCore
  */
 class CCDeveloper implements IController {
 
@@ -19,7 +19,7 @@ class CCDeveloper implements IController {
 	public function Links() {
 		$this -> Menu();
 
-		$ly = CAlyssa::Instance();
+		$ly = CLydia::Instance();
 
 		$url = 'developer/links';
 		$current = $ly -> request -> CreateUrl($url);
@@ -53,7 +53,7 @@ EOD;
 	 * Create a method that shows the menu, same for all methods
 	 */
 	private function Menu() {
-		$ly = CAlyssa::Instance();
+		$ly = CLydia::Instance();
 		$menu = array('developer', 'developer/index', 'developer/links');
 
 		$html = null;

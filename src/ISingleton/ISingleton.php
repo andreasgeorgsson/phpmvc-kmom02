@@ -2,7 +2,7 @@
 /**
 * Interface for classes implementing the singleton pattern.
 *
-* @package AlyssaCore
+* @package LydiaCore
 */
 interface ISingleton {
    public static function Instance();

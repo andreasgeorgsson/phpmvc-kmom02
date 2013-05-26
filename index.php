@@ -2,21 +2,19 @@
 //
 // PHASE: BOOTSTRAP
 //
-define('ALYSSA_INSTALL_PATH', dirname(__FILE__));
-define('ALYSSA_SITE_PATH', ALYSSA_INSTALL_PATH . '/site');
+define('LYDIA_INSTALL_PATH', dirname(__FILE__));
+define('LYDIA_SITE_PATH', LYDIA_INSTALL_PATH . '/site');
 
-require(ALYSSA_INSTALL_PATH.'/src/CAlyssa/bootstrap.php');
+require (LYDIA_INSTALL_PATH . '/src/CLydia/bootstrap.php');
 
-$ly = CAlyssa::Instance();
-
+$ly = CLydia::Instance();
 
 //
 // PHASE: FRONTCONTROLLER ROUTE
 //
-$ly->FrontControllerRoute();
-
+$ly -> FrontControllerRoute();
 
 //
 // PHASE: THEME ENGINE RENDER
 //
-$ly->ThemeEngineRender();
+$ly -> ThemeEngineRender();

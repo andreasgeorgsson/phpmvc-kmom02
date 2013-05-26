@@ -2,7 +2,7 @@
 /**
  * Standard controller layout.
  *
- * @package AlyssaCore
+ * @package LydiaCore
  */
 class CCIndex implements IController {
 
@@ -12,6 +12,7 @@ class CCIndex implements IController {
 	public function Index() {
 		global $ly;
 		$ly -> data['title'] = "The Index Controller";
+		$ly -> data['main'] = "<h1>The Index Controller</h1>";
 	}
 
 }

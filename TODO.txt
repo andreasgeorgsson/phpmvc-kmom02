@@ -1,0 +1,3 @@
+Är på: Lydia: Vilken är webbplatsens base_url?
+
+- För att kunna köra på student.bth.se, gå in i .htaccess och avkommentera en rad. 

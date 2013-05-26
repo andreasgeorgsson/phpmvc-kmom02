@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  
+  # Must use RewriteBase on www.student.bth.se, Rewritebase for url /~mos/test is /~mos/test/
+  # Antes comment: uncomment following line for it to work on www.student.bth.se
+  # RewriteBase /~lage12/phpmvc/kmom02/
+  
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule (.*) index.php/$1 [NC,L]
+</IfModule>

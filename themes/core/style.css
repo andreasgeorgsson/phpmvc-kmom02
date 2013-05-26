@@ -15,6 +15,7 @@ body {
 	border-radius: 4px;
 	box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
 	background: #fcfcfc;
+	color: #222222;
 }
 #header, #main, #footer {
 	margin: 0 auto;
@@ -23,9 +24,8 @@ body {
 	padding: 1em;
 }
 
-h1 { color: #004f69; text-decoration: underline; }
+h1 { color: #004f69; }
 h2 { color: #007ba4; }
-hr { color: #007ba4; }
 
 a { color: #3e748b; }
 a:hover { color: #222222; text-decoration: none; }

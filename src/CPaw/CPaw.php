@@ -67,7 +67,9 @@ class CPaw implements ISingleton {
 				die('404. ' . get_class() . ' error: Controller does not implement interface IController.');
 			}
 		} else {
-			die('404. Page is not found.');
+			header('Location: 404.html');
+			exit ;
+			//die('404. Page is not found.');
 		}
 	}
 
@@ -78,7 +80,7 @@ class CPaw implements ISingleton {
 		// Get the paths and settings for the theme
 		$themeName = $this -> config['theme']['name'];
 		$themePath = PAW_INSTALL_PATH . "/themes/{$themeName}";
-		$themeUrl = $this->request->base_url . "themes/{$themeName}";
+		$themeUrl = $this -> request -> base_url . "themes/{$themeName}";
 
 		// Add stylesheet path to the $paw->data array
 		$this -> data['stylesheet'] = "{$themeUrl}/style.css";

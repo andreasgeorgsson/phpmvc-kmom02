@@ -2,19 +2,19 @@
 //
 // PHASE: BOOTSTRAP
 //
-define('ALYSSA_INSTALL_PATH', dirname(__FILE__));
-define('ALYSSA_SITE_PATH', ALYSSA_INSTALL_PATH . '/site');
+define('PAW_INSTALL_PATH', dirname(__FILE__));
+define('PAW_SITE_PATH', PAW_INSTALL_PATH . '/site');
 
-require (ALYSSA_INSTALL_PATH . '/src/CAlyssa/bootstrap.php');
+require (PAW_INSTALL_PATH . '/src/CPaw/bootstrap.php');
 
-$ly = CAlyssa::Instance();
+$paw = CPaw::Instance();
 
 //
 // PHASE: FRONTCONTROLLER ROUTE
 //
-$ly -> FrontControllerRoute();
+$paw -> FrontControllerRoute();
 
 //
 // PHASE: THEME ENGINE RENDER
 //
-$ly -> ThemeEngineRender();
+$paw -> ThemeEngineRender();

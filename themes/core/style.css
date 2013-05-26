@@ -1,5 +1,5 @@
 /**
- * Description: Core theme for Lydia
+ * Description: Core theme for Paw
  */
 
 /**
@@ -10,11 +10,22 @@ html {
 body {
 	background-color: #eee;
 	font: 1em Verdana, Arial, Helvetica, sans-serif;
+	margin: 15px;
+	border: 1px solid #b3b3b3;
+	border-radius: 4px;
+	box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
+	background: #fcfcfc;
 }
-
 #header, #main, #footer {
 	margin: 0 auto;
 	width: 970px;
 	background-color: #fff;
 	padding: 1em;
 }
+
+h1 { color: #004f69; text-decoration: underline; }
+h2 { color: #007ba4; }
+hr { color: #007ba4; }
+
+a { color: #3e748b; }
+a:hover { color: #222222; text-decoration: none; }

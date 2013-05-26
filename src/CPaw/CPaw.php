@@ -1,11 +1,11 @@
 <?php
 /**
- * Main class for Alyssa, holds everything.
+ * Main class for Paw, holds everything.
  *
- * @package AlyssaCore
+ * @package PawCore
  */
 
-class CAlyssa implements ISingleton {
+class CPaw implements ISingleton {
 
 	private static $instance = null;
 
@@ -13,18 +13,18 @@ class CAlyssa implements ISingleton {
 	 * Constructor
 	 */
 	protected function __construct() {
-		// include the site specific config.php and create a ref to $ly to be used by config.php
-		$ly = &$this;
-		require (ALYSSA_SITE_PATH . '/config.php');
+		// include the site specific config.php and create a ref to $paw to be used by config.php
+		$paw = &$this;
+		require (PAW_SITE_PATH . '/config.php');
 	}
 
 	/**
 	 * Singleton pattern. Get the instance of the latest created object or create a new one.
-	 * @return CAlyssa The instance of this class.
+	 * @return CPaw The instance of this class.
 	 */
 	public static function Instance() {
 		if (self::$instance == null) {
-			self::$instance = new CAlyssa();
+			self::$instance = new CPaw();
 		}
 		return self::$instance;
 	}
@@ -77,21 +77,21 @@ class CAlyssa implements ISingleton {
 	public function ThemeEngineRender() {
 		// Get the paths and settings for the theme
 		$themeName = $this -> config['theme']['name'];
-		$themePath = ALYSSA_INSTALL_PATH . "/themes/{$themeName}";
+		$themePath = PAW_INSTALL_PATH . "/themes/{$themeName}";
 		$themeUrl = $this->request->base_url . "themes/{$themeName}";
 
-		// Add stylesheet path to the $ly->data array
-		$this -> data['stylesheet'] = "{$themeUrl}/style_base.css";
+		// Add stylesheet path to the $paw->data array
+		$this -> data['stylesheet'] = "{$themeUrl}/style.css";
 
 		// Include the global functions.php and the functions.php that are part of the theme
-		$ly = &$this;
-		include ALYSSA_INSTALL_PATH . "/themes/functions.php";
+		$paw = &$this;
+		include PAW_INSTALL_PATH . "/themes/functions.php";
 		$functionsPath = "{$themePath}/functions.php";
 		if (is_file($functionsPath)) {
 			include $functionsPath;
 		}
 
-		// Extract $ly->data to own variables and handover to the template file
+		// Extract $paw->data to own variables and handover to the template file
 		extract($this -> data);
 		include ("{$themePath}/default.tpl.php");
 	}

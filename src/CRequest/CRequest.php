@@ -2,7 +2,7 @@
 /**
  * Parse the request and identify controller, method and arguments.
  *
- * @package AlyssaCore
+ * @package PawCore
  */
 class CRequest {
 

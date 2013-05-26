@@ -35,7 +35,7 @@ class CAlyssa implements ISingleton {
 	public function FrontControllerRoute() {
 		// Take current url and divide it in controller, method and parameters
 		$this -> request = new CRequest();
-		$this -> request -> Init();
+		$this -> request -> Init($this -> config['base_url']);
 		$controller = $this -> request -> controller;
 		$method = $this -> request -> method;
 		$arguments = $this -> request -> arguments;
@@ -78,7 +78,7 @@ class CAlyssa implements ISingleton {
 		// Get the paths and settings for the theme
 		$themeName = $this -> config['theme']['name'];
 		$themePath = ALYSSA_INSTALL_PATH . "/themes/{$themeName}";
-		$themeUrl = "themes/{$themeName}";
+		$themeUrl = $this->request->base_url . "themes/{$themeName}";
 
 		// Add stylesheet path to the $ly->data array
 		$this -> data['stylesheet'] = "{$themeUrl}/style_base.css";

@@ -16,6 +16,7 @@ class CRequest {
 	 * Init the object by parsing the current url request.
 	 */
 	public function Init() {
+
 		// Take current url and divide it in controller, method and arguments
 		$requestUri = $_SERVER['REQUEST_URI'];
 		$scriptName = $_SERVER['SCRIPT_NAME'];
@@ -32,10 +33,12 @@ class CRequest {
 		// Prepare to create current_url and base_url
 		$currentUrl = $this -> GetCurrentUrl();
 		$parts = parse_url($currentUrl);
+		$baseUrl = !empty($baseUrl) ? $baseUrl : "{$parts['scheme']}://{$parts['host']}" . (isset($parts['port']) ? ":{$parts['port']}" : '') . rtrim(dirname($scriptName), '/');
 
 		// Store it
-		$this -> base_url = rtrim("{$parts['scheme']}://{$parts['host']}" . (isset($parts['port']) ? ":{$parts['port']}" : '') . rtrim(dirname($scriptName), '/'), '/') . '/';
+		$this -> base_url = rtrim($baseUrl, '/') . '/';
 		$this -> current_url = $currentUrl;
+		//$this -> base_url = rtrim("{$parts['scheme']}://{$parts['host']}" . (isset($parts['port']) ? ":{$parts['port']}" : '') . rtrim(dirname($scriptName), '/'), '/') . '/';
 		$this -> request_uri = $requestUri;
 		$this -> script_name = $scriptName;
 		$this -> query = $query;

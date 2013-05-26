@@ -11,6 +11,11 @@ error_reporting(-1);
 ini_set('display_errors', 1);
 
 /**
+* Set a base_url to use another than the default calculated
+*/
+$ly->config['base_url'] = null;
+
+/**
  * Define session name
  */
 $ly -> config['session_name'] = preg_replace('/[:\.\/-_]/', '', $_SERVER["SERVER_NAME"]);
@@ -44,6 +49,8 @@ $ly -> config['controllers'] = array('index' => array('enabled' => true, 'class'
 /**
  * Settings for the theme.
  */
-$ly -> config['theme'] = array(
-// The name of the theme in the theme directory
-'name' => 'core', );
+ /**
+* Set a base_url to use another than the default calculated
+*/
+$ly->config['base_url'] = null;
+$ly -> config['theme'] = array('name' => 'core', );

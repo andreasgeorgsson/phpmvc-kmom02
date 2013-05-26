@@ -1,3 +1,7 @@
 Är på: Lydia: Vilken är webbplatsens base_url?
 
 - För att kunna köra på student.bth.se, gå in i .htaccess och avkommentera en rad. 
+
+Report
+Att MVC betyder "model, view controller" och representerar ett tänk / flöde hade jag koll på men inte mycket mer än så.
+Fann den biten mycket intressant.

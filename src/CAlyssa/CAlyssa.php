@@ -85,6 +85,7 @@ class CAlyssa implements ISingleton {
 
 		// Include the global functions.php and the functions.php that are part of the theme
 		$ly = &$this;
+		include ALYSSA_INSTALL_PATH . "/themes/functions.php";
 		$functionsPath = "{$themePath}/functions.php";
 		if (is_file($functionsPath)) {
 			include $functionsPath;

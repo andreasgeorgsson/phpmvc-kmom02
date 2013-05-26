@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="sv">
+<html lang="sv"> 
 <head>
   <meta charset="utf-8">
   <title><?=$title?></title>
@@ -17,4 +17,4 @@
     <?=$footer ?>
   </div>
 </body>
-</html>
+</html> 
